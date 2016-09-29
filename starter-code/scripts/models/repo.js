@@ -1,23 +1,23 @@
 (function(module) {
-  var reposObj = {};
+  var repos = {};
 
-  reposObj.all = [];
+  repos.all = [];
 
-  reposObj.requestRepos = function(callback) {
+  repos.requestRepos = function(callback) {
     $.get('/github/users/codefellows/repos' +
           '?per_page=5' +
           '&sort=updated')
     .done(function(data) {
-      reposObj.all = data;
+      repos.all = data;
     })
     .done(callback);
   };
 
-  reposObj.with = function(attr) {
-    return reposObj.all.filter(function(repo) {
+  repos.with = function(attr) {
+    return repos.all.filter(function(repo) {
       return repo[attr];
     });
   };
 
-  module.reposObj = reposObj;
+  module.repos = repos;
 })(window);

@@ -1,6 +1,8 @@
-var requestProxy = require('express-request-proxy'),
-  express = require('express'),
+// Import our two node modules, express, and our proxy
+var express = require('express'),
+  requestProxy = require('express-request-proxy'),
   port = process.env.PORT || 3000,
+  // Store a server instance into our local variable 'app'
   app = express();
 
 var proxyGitHub = function(request, response) {

@@ -3,7 +3,6 @@
 
   var ui = function() {
     var $about = $('#about');
-
     $about.find('ul').empty();
     $about.show().siblings().hide();
   };
@@ -15,9 +14,8 @@
 
   repoView.index = function() {
     ui();
-
     $('#about ul').append(
-      reposObj.with('forks_count').map(render)
+      repos.with('forks_count').map(render)
     );
   };
 

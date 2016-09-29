@@ -30,58 +30,52 @@
 
   Article.prototype.insertRecord = function(callback) {
     webDB.execute(
-      [
-        {
-          'sql': 'INSERT INTO articles ' +
-          '(title, author, authorUrl, category, publishedOn, body) ' +
-          'VALUES (?, ?, ?, ?, ?, ?);',
-          'data':
-            [this.title,
-             this.author,
-             this.authorUrl,
-             this.category,
-             this.publishedOn,
-             this.body],
-        }
-      ],
+      [{
+        'sql': 'INSERT INTO articles ' +
+        '(title, author, authorUrl, category, publishedOn, body) ' +
+        'VALUES (?, ?, ?, ?, ?, ?);',
+        'data':
+          [this.title,
+           this.author,
+           this.authorUrl,
+           this.category,
+           this.publishedOn,
+           this.body],
+      }],
       callback
     );
   };
 
   Article.prototype.deleteRecord = function(callback) {
     webDB.execute(
-      [
-        {
-          'sql': 'DELETE FROM articles WHERE id = ?;',
-          'data': [this.id]
-        }
-      ],
+      [{
+        'sql': 'DELETE FROM articles WHERE id = ?;',
+        'data': [this.id]
+      }],
       callback
     );
   };
 
   Article.prototype.updateRecord = function(callback) {
     webDB.execute(
-      [
-        {
-          'sql': 'UPDATE articles SET '+
-          'title = ?, ' +
-          'author = ?, ' +
-          'authorUrl = ?, ' +
-          'category = ?, ' +
-          'publishedOn = ?, ' +
-          'body = ? ' +
-          'WHERE id = ?;',
-          'data':
-            [this.title,
-             this.author,
-             this.authorUrl,
-             this.category,
-             this.publishedOn,
-             this.body,
-             this.id]
-        }
-      ],
+      [{
+        'sql': 'UPDATE articles SET '+
+        'title = ?, ' +
+        'author = ?, ' +
+        'authorUrl = ?, ' +
+        'category = ?, ' +
+        'publishedOn = ?, ' +
+        'body = ? ' +
+        'WHERE id = ?;',
+        'data':
+          [this.title,
+           this.author,
+           this.authorUrl,
+           this.category,
+           this.publishedOn,
+           this.body,
+           this.id]
+      }],
       callback
     );
   };
@@ -118,12 +112,10 @@
 
   Article.findWhere = function(field, value, callback) {
     webDB.execute(
-      [
-        {
-          sql: 'SELECT * FROM articles WHERE ' + field + ' = ?;',
-          data: [value]
-        }
-      ],
+      [{
+        sql: 'SELECT * FROM articles WHERE ' + field + ' = ?;',
+        data: [value]
+      }],
       callback
     );
   };

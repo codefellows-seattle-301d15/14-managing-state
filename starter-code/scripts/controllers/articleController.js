@@ -6,12 +6,12 @@
   articleController.index = function(ctx, next) {
     if(ctx.articles.length) {
       articleView.index(ctx.articles);
-    } else{
+    } else {
       page('/');
     }
   };
 
-  // COMMENT: What does this method do?  What is it's execution path? 
+  // COMMENT: What does this method do?  What is it's execution path?
   articleController.loadById = function(ctx, next) {
     var articleData = function(article) {
       ctx.articles = article;
