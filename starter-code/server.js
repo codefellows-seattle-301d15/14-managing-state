@@ -13,8 +13,14 @@ var proxyGitHub = function(request, response) {
   }))(request, response);
 };
 
+/* When the client navigates to our about page,
+    this will invoke requestRepos, and with the URL
+    begining with '/github' - this triggers our app.get
+    below to invoke proxyGitHub as its callback  */
 app.get('/github/*', proxyGitHub);
 
+/* Declare the path for our html, css, and js files
+   for our server to use */
 app.use(express.static('./'));
 
 app.get('*', function(request, response) {
@@ -22,6 +28,7 @@ app.get('*', function(request, response) {
   response.sendFile('index.html', { root: '.' });
 });
 
+// Begin running the server
 app.listen(port, function() {
   console.log('Server started on port ' + port + '!');
 });
