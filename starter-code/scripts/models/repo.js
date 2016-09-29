@@ -7,7 +7,7 @@
     $.get('/github/users/codefellows/repos' +
           '?per_page=5' +
           '&sort=updated')
-    .done(function(data, message, xhr) {
+    .done(function(data) {
       reposObj.all = data;
     })
     .done(callback);
