@@ -120,7 +120,6 @@
     );
   };
 
-  // DONE: Example of synchronous, FP approach to getting unique data
   Article.allAuthors = function() {
     return Article.allArticles.map(function(article) {
       return article.author;
@@ -150,8 +149,8 @@
     return Article.allAuthors().map(function(author) {
       return {
         name: author,
-        numWords: Article.allArticles.filter(function(a) {
-          return a.author === author;
+        numWords: Article.allArticles.filter(function(article) {
+          return article.author === author;
         })
         .map(function(a) {
           return a.body.match(/\w+/g).length;

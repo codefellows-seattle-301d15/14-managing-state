@@ -1,10 +1,8 @@
 (function(module) {
   var repos = {};
 
-  repos.all = [];
-
   repos.requestRepos = function(callback) {
-    $.get('/github/users/codefellows/repos' +
+    $.get('/github/users/codefellows-seattle-301d14/repos' +
           '?per_page=5' +
           '&sort=updated')
     .done(function(data) {
