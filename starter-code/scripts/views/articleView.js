@@ -16,6 +16,9 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  //This method runs through the handlebars template and appends filters to
+  //both the authors and categories and returning the li rows of names
+  //of the categories and authors.
   articleView.populateFilters = function() {
     var options;
     var template = Handlebars.compile($('#option-template').text());
@@ -35,6 +38,8 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  //handleFilters uses the filter id to target what it would like to replace
+  //any children, siblings and such will update data
   articleView.handleFilters = function() {
     $('#filters').one('change', 'select', function() {
       var resource = this.id.replace('-filter', '');
@@ -84,6 +89,8 @@
    }; */
 
   // COMMENT: What does this method do?  What is it's execution path?
+  //the index function grabs the articles id and renders each articles
+  //it will also show/hide said siblings
   articleView.index = function(articles) {
     $('#articles').show().siblings().hide();
 
