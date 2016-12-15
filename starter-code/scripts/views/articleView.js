@@ -15,7 +15,7 @@
     return template(article);
   };
 
-  // COMMENT: What does this method do?  What is it's execution path?
+  // COMMENT: What does this method do?  What is it's execution path? This controls the filters and places all the authors and categories in the selected filters. execution path would be the option-template.
   articleView.populateFilters = function() {
     var options;
     var template = Handlebars.compile($('#option-template').text());
@@ -34,7 +34,7 @@
     });
   };
 
-  // COMMENT: What does this method do?  What is it's execution path?
+  // COMMENT: What does this method do?  What is it's execution path? This method only allows one filter to be active and reset the other filter.  Its execution path is the #filters.
   articleView.handleFilters = function() {
     $('#filters').one('change', 'select', function() {
       var resource = this.id.replace('-filter', '');
@@ -83,7 +83,7 @@
      });
    }; */
 
-  // COMMENT: What does this method do?  What is it's execution path?
+  // COMMENT: What does this method do?  What is it's execution path? This method truncates articles and hides/shows full article.  Execution path would be the #articles.
   articleView.index = function(articles) {
     $('#articles').show().siblings().hide();
 
