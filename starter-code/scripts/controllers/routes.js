@@ -22,6 +22,7 @@ page('/category/:categoryName',
   articleController.loadByCategory,
   articleController.index);
 
+// the * is a wildcard...if the above functions don't match anything then it will return 'not found'
 page('*', function(){
   $('body').text('Not found!');
 });

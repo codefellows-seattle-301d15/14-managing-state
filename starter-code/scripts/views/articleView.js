@@ -16,6 +16,8 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  // This function loads the author into the drop-down filters
+  // the .map creates an array
   articleView.populateFilters = function() {
     var options;
     var template = Handlebars.compile($('#option-template').text());
@@ -35,6 +37,7 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  //
   articleView.handleFilters = function() {
     $('#filters').one('change', 'select', function() {
       var resource = this.id.replace('-filter', '');
@@ -84,6 +87,7 @@
    }; */
 
   // COMMENT: What does this method do?  What is it's execution path?
+  // 
   articleView.index = function(articles) {
     $('#articles').show().siblings().hide();
 
