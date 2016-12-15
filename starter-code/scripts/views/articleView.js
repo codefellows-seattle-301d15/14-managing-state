@@ -17,6 +17,11 @@
 
   // COMMENT: What does this method do?  What is it's execution path?
   articleView.populateFilters = function() {
+    /* Compiles the handlebar template for filter options -> .map and .append
+      assigns an array containing all authors to the author filter, and an array
+      containing all categories from a sql DISTINCT command to the category
+      filter.
+    */
     var options;
     var template = Handlebars.compile($('#option-template').text());
     options = Article.allAuthors()
@@ -36,6 +41,9 @@
 
   // COMMENT: What does this method do?  What is it's execution path?
   articleView.handleFilters = function() {
+    /* .one listens for a change in the selected filter option and creates a
+      page route appending the filter option value to the url
+    */
     $('#filters').one('change', 'select', function() {
       var resource = this.id.replace('-filter', '');
       $(this).parent().siblings().children().val('');
@@ -85,6 +93,11 @@
 
   // COMMENT: What does this method do?  What is it's execution path?
   articleView.index = function(articles) {
+    /* Shows the articles section and hides all its siblings, removes a
+      particular article, goes through each of the articles and renders them,
+      populates filters and invokes their event handlers,
+      and truncates the article if necessary
+    */
     $('#articles').show().siblings().hide();
 
     $('#articles article').remove();
