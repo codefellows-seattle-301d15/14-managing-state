@@ -84,6 +84,7 @@
    }; */
 
   // COMMENT: What does this method do?  What is it's execution path?
+  //First a jquery selector finds the <section> tag with an id of 'articles' and calls .show; Then .siblings is called to select all its children; which is then hidden using .hide; Next, a selector is made to remove any <article> tag that is a child of the <section> tag with an id of articles. The .forEach method is then used on our articles array (which came from ctx.articles). Inside this .forEach, the article instant is first rendered using our predefined function, 'render', which is a handlebars compiler. Next the compiled article is appended to the <section> with an id of articles. The .populateFilters and .handleFilters methods are then both called to populate the selectors.
   articleView.index = function(articles) {
     $('#articles').show().siblings().hide();
 
