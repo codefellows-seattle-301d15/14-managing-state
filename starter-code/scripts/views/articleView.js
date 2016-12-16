@@ -16,6 +16,7 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  //This method populates the filters for the authors and the categories
   articleView.populateFilters = function() {
     var options;
     var template = Handlebars.compile($('#option-template').text());
@@ -35,6 +36,7 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  //This function is what changes the value of the filters showing what the user changes to
   articleView.handleFilters = function() {
     $('#filters').one('change', 'select', function() {
       var resource = this.id.replace('-filter', '');
@@ -84,6 +86,7 @@
    }; */
 
   // COMMENT: What does this method do?  What is it's execution path?
+  //This function renders the page and calls the populateFilters and handleFilters methods.
   articleView.index = function(articles) {
     $('#articles').show().siblings().hide();
 
