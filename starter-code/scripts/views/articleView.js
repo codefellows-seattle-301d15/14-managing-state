@@ -16,6 +16,7 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  // This is the method that is used to populate the option-select fields in the HTML. First it populates the author filter, which it does by compiling the Handlebars template in the HTML file tagged wit hthe id of option-template. It calls the Article.allAuthors method to map an array of only the author parameter from the article data and append each name to the filter. It performs a similar function for the categories.
   articleView.populateFilters = function() {
     var options;
     var template = Handlebars.compile($('#option-template').text());
@@ -35,6 +36,7 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  // This is the method that accepts the value selected by the user and displays only the results that match that criterial. It has an event listener on element with the id of filters (that being the drop-down menus in the HTML file) that listens for the value to change. It runs a callback function that h
   articleView.handleFilters = function() {
     $('#filters').one('change', 'select', function() {
       var resource = this.id.replace('-filter', '');
