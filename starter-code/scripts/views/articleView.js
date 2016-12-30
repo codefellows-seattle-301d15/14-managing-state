@@ -83,7 +83,7 @@
      });
    }; */
 
-  // COMMENT: What does this method do?  What is it's execution path?
+  // this make articles show
   articleView.index = function(articles) {
     $('#articles').show().siblings().hide();
 
